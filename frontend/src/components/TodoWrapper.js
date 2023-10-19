@@ -4,7 +4,7 @@ import { TodoForm } from "./TodoForm";
 import { EditTodoForm } from "./EditTodoForm";
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:8000'; // Set your Django API URL
+axios.defaults.baseURL = 'http://54.201.253.206:8000'; // Set your Django API URL
 
 axios.defaults.xsrfCookieName = 'csrftoken'; // Make sure the name matches your Django project's configuration.
 axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';

@@ -1,6 +1,6 @@
 // src/api.js
 export const getTodos = async () => {
-    const response = await fetch("http://localhost:8000/api/todos/");
+    const response = await fetch("http://54.201.253.206:8000/api/todos/");
     if (!response.ok) {
       throw new Error("Failed to fetch todos");
     }
@@ -8,7 +8,7 @@ export const getTodos = async () => {
   };
   
   export const addTodo = async (task) => {
-    const response = await fetch("http://localhost:8000/api/todos/", {
+    const response = await fetch("http://54.201.253.206:8000/api/todos/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -22,7 +22,7 @@ export const getTodos = async () => {
   };
   
   export const deleteTodo = async (id) => {
-    const response = await fetch(`http://localhost:8000/api/todos/${id}`, {
+    const response = await fetch(`http://54.201.253.206:8000/api/todos/${id}`, {
       method: "DELETE",
     });
     if (!response.ok) {
@@ -31,7 +31,7 @@ export const getTodos = async () => {
   };
   
   export const updateTodo = async (id, data) => {
-    const response = await fetch(`http://localhost:8000/api/todos/${id}`, {
+    const response = await fetch(`http://54.201.253.206:8000/api/todos/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
