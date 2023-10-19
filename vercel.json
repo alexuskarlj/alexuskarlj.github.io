@@ -1,14 +1,31 @@
 {
     "version": 2,
     "builds": [
-      { "src": "frontend/build", "use": "@vercel/static" }
+      {
+        "src": "todo_project/wsgi.py",
+        "use": "@vercel/python",
+        "config": {
+          "maxLambdaSize": "15mb",
+          "runtime": "python3.9"
+        }
+      },
+      {
+        "src": "frontend/build",
+        "use": "@vercel/static",
+        "config": {
+          "trailingSlash": true
+        }
+      }
     ],
     "routes": [
-      { "src": "/api/todos", "dest": "todo_app/wsgi.py" },
-      { "src": "/(.*)", "dest": "frontend/build/index.html" }
-    ],
-    "env": {
-      "DJANGO_SETTINGS_MODULE": "todo_project.settings"
-    }
+      {
+        "src": "/static/(.*)",
+        "dest": "/frontend/build/static/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "todo_project/wsgi.py"
+      }
+    ]
   }
   
