@@ -2,16 +2,15 @@
 import os
 from pathlib import Path
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-SECRET_KEY = 'django-insecure-14q0ej-vlr5a&i4y3)li9!om%&#9)emd+#u6)1vgstkis-jp))'
 
+SECRET_KEY = 'django-insecure-le!w4nmwj&b^591v6a71vqfye2pf+c2pvocf3kafm4ril7p!k4'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1', '*']
-
+ALLOWED_HOSTS = ['.vercel.app','now.sh','127.0.0.1','localhost']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -45,7 +44,7 @@ ROOT_URLCONF = 'todo_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'frontend/build/templates')], 
+        'DIRS': [os.path.join(BASE_DIR, 'frontend/build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -64,10 +63,21 @@ WSGI_APPLICATION = 'todo_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': '4pasOhgeqYFM70OmjNxv',
+        'HOST': 'containers-us-west-122.railway.app',
+        'PORT': '7396',
     }
 }
 
