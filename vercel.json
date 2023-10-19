@@ -1,7 +1,7 @@
 {
     "version": 2,
     "builds": [
-      { "src": "frontend/build", "use": "@vercel/static" },
+      { "src": "frontend/build", "use": "@vercel/static" }
     ],
     "routes": [
       { "src": "/api/todos", "dest": "todo_app/wsgi.py" },
