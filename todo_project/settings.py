@@ -3,7 +3,7 @@ import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+frontend_build_dir = os.path.join(BASE_DIR, 'frontend', 'build')
 
 
 SECRET_KEY = 'django-insecure-le!w4nmwj&b^591v6a71vqfye2pf+c2pvocf3kafm4ril7p!k4'
@@ -45,7 +45,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'frontend/build'), 
+            os.path.join(BASE_DIR, 'frontend', 'build'), 
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -58,6 +58,8 @@ TEMPLATES = [
         },
     },
 ]
+
+print("BASE_DIR:", BASE_DIR,'frontend/build')
 
 WSGI_APPLICATION = 'todo_project.wsgi.application'
 
